@@ -161,3 +161,126 @@ console.log(`String
 multiple
 lines`);
 */
+
+/*
+const age = 15;
+const isOldEnough = age >= 18;
+
+if (age >= 18) {
+  console.log("Sarah can start drivign license");
+} else {
+  const yearsleft = 18 - age;
+  console.log(`Sarah is too young. Wait another ${yearsleft} years :)`);
+}
+
+const birthYear = 1991;
+let century;
+if (birthYear <= 2000) {
+  century = 20;
+} else {
+  century = 21;
+}
+console.log(century);
+*/
+//type conversion
+/*
+const inputYear = "1991";
+console.log(Number(inputYear), inputYear);
+console.log(Number(inputYear) + 18);
+
+console.log(Number("Jonas"));
+console.log(typeof NaN);
+
+console.log(String(23), 23);
+
+//type coercion
+console.log("I am " + 23 + "years old");
+console.log("23" + "10" + 3);
+console.log("23" / "2");
+
+let n = "1" + 1;
+n = n - 1;
+console.log(n);
+*/
+
+/*
+console.log(Boolean(0));
+console.log(Boolean(undefined));
+console.log(Boolean("Jonas"));
+console.log(Boolean({}));
+
+const money = 0;
+if (money) {
+  console.log("Don't spend it all");
+} else {
+  console.log("You should get a job!");
+}
+
+let height;
+if (height) {
+  console.log("YAY! height is defined");
+} else {
+  console.log("Height is undefined");
+}
+*/
+
+/*
+const age = 18;
+if (age === 18) {
+  console.log("You just became an adult (strict)");
+}
+if (age == 18) console.log("You just became an adult (loose)");
+
+const favorite = Number(prompt("What's your favorite number?"));
+console.log(favorite);
+console.log(typeof favorite);
+
+if (favorite === 23) {
+  console.log("Cool! 23 is an amazing number!");
+} else if (favorite === 7) {
+  console.log("7 is also a cool number");
+} else {
+  console.log("Number is not 23 or 7");
+}
+
+if (favorite !== 23) console.log("Why not 23");
+*/
+
+/*
+const hasDriversLicense = true; //A
+const hasGoodVision = false; //B
+
+console.log(hasDriversLicense && hasGoodVision);
+console.log(hasDriversLicense || hasGoodVision);
+console.log(!hasDriversLicense);
+
+const shouldDrive = hasDriversLicense && hasGoodVision;
+if (shouldDrive) {
+  console.log("Sarah is able to drive");
+} else {
+  console.log("Someone else should drive...");
+}
+
+const isTired = true; //C
+console.log(hasDriversLicense && hasGoodVision && isTired);
+*/
+
+/*
+//Coding Challenge #3
+const averageScoreD = (96 + 108 + 89) / 3;
+const averageScoreK = (88 + 91 + 110) / 3;
+
+if (averageScoreD > averageScoreK && averageScoreD >= 100)
+  console.log("Dolphins");
+else if (averageScoreD < averageScoreK && averageScoreK >= 100)
+  console.log("Koalas");
+else if (
+  averageScoreD === averageScoreK &&
+  averageScoreK >= 100 &&
+  averageScoreD >= 100
+)
+  console.log("Draw");
+else {
+  console.log("Nobody wins any trophies");
+}
+*/
