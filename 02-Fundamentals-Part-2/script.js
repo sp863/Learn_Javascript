@@ -110,6 +110,7 @@ console.log(yearsUntilRetirement(1991, "Jonas"));
 console.log(yearsUntilRetirement(1950, "Mike"));
 */
 
+/*
 const calcAverage = (score1, score2, score3) => {
   return (score1 + score2 + score3) / 3;
 };
@@ -126,3 +127,80 @@ function checkWinner(avgD, avgK) {
 }
 
 checkWinner(dolphinsAvg, koalaAvg);
+*/
+
+/*
+const friends = ["Michael", "Steven", "Peter"];
+console.log(friends);
+
+const years = new Array(1991, 1984, 2008, 2020);
+
+console.log(friends[0]);
+console.log(friends[2]);
+
+console.log(friends.length);
+console.log(friends[friends.length - 1]);
+
+friends[2] = "Jay";
+console.log(friends);
+
+const firstName = "Jonas";
+const jonas = [firstName, "Par", 2037 - 1991, "teacher", friends];
+
+console.log(jonas);
+
+//Exercise
+const calcAge = function (birthYear) {
+  return 2037 - birthYear;
+};
+
+const y = [1990, 1967, 2002, 2010, 2018];
+
+const age1 = calcAge(y[0]);
+const age2 = calcAge(y[1]);
+const age3 = calcAge(y[y.length - 1]);
+
+console.log(age1, age2, age3);
+*/
+
+/*
+const friends = ["Michael", "Steven", "Peter"];
+const newLength = friends.push("Jay");
+console.log(friends);
+console.log(newLength);
+
+friends.unshift("John");
+console.log(friends);
+
+//Remove elements
+const popped = friends.pop();
+console.log(popped);
+console.log(friends);
+
+friends.shift();
+console.log(friends);
+
+console.log(friends.indexOf("Steven"));
+console.log(friends.indexOf("Bob"));
+
+console.log(friends.includes("Steven"));
+console.log(friends.includes("Bob"));
+
+if (friends.includes("Peter")) {
+  console.log("You have a friends called Peter");
+}
+*/
+
+// Coding Challenge #2
+function calcTip(bill) {
+  if (bill <= 300 && bill >= 50) {
+    return bill * 0.15;
+  } else {
+    return bill * 0.2;
+  }
+}
+
+const bills = [125, 155, 44];
+const tips = [calcTip(125), calcTip(155), calcTip(44)];
+const total = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]];
+console.log(total);
