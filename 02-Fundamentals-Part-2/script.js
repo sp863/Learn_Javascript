@@ -393,6 +393,7 @@ while (dice !== 6) {
 }
 */
 
+/*
 const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
 const tips = [];
 const total = [];
@@ -418,3 +419,38 @@ function calcAverage(arr) {
   return sum / arr.length;
 }
 console.log(calcAverage([2, 3, 7]));
+*/
+
+/*
+const measureKelvin = function () {
+  const measurement = {
+    type: "temp",
+    unit: "celsius",
+    value: Number(prompt("Degree celsius: ")),
+  };
+  // console.log(measurement);
+  console.table(measurement);
+
+  // console.log(measurement.value);
+
+  const kelvin = measurement.value + 273;
+  return kelvin;
+};
+
+//A) IDENTIFY BUG
+console.log(measureKelvin());
+*/
+
+const temp1 = [17, 21, 23];
+const temp2 = [12, 5, -5, 0, 4];
+
+function printForecast(arr) {
+  let tempor = "...";
+  for (let i = 0; i < arr.length; i++) {
+    tempor += `${arr[i]}'C in ${i + 1} days...`;
+  }
+  console.log(tempor);
+}
+
+printForecast(temp1);
+printForecast(temp2);
