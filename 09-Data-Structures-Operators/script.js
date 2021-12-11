@@ -54,6 +54,7 @@ const restaurant = {
   },
 };
 
+/*
 //Property names
 const properties = Object.keys(openingHours);
 console.log(properties);
@@ -77,6 +78,79 @@ const entries = Object.entries(openingHours);
 for (const [key, { open, close }] of entries) {
   console.log(`On ${key} we open at ${open} and close at ${close}`);
 }
+*/
+//Coding Challenge #2
+const game = {
+  team1: "Bayern Munich",
+  team2: "Borrussia Dortmund",
+  players: [
+    [
+      "Neuer",
+      "Pavard",
+      "Martinez",
+      "Alaba",
+      "Davies",
+      "Kimmich",
+      "Goretzka",
+      "Coman",
+      "Muller",
+      "Gnarby",
+      "Lewandowski",
+    ],
+    [
+      "Burki",
+      "Schulz",
+      "Hummels",
+      "Akanji",
+      "Hakimi",
+      "Weigl",
+      "Witsel",
+      "Hazard",
+      "Brandt",
+      "Sancho",
+      "Gotze",
+    ],
+  ],
+  score: "4:0",
+  scored: ["Lewandowski", "Gnarby", "Lewandowski", "Hummels"],
+  date: "Nov 9th, 2037",
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+
+  printGoals: function (...players) {
+    console.log(`${players.length} goals were scored`);
+  },
+};
+
+//1.
+for (const [i, scorer] of game.scored.entries()) {
+  console.log(`Goal ${i + 1}: ${scorer}`);
+}
+//2.
+const values = Object.values(game.odds);
+let sum = 0;
+for (const odd of values) {
+  sum += odd;
+}
+let answer = sum / values.length;
+console.log(answer);
+//3.
+const entries = Object.entries(game.odds);
+console.log(entries);
+for (const [team, odd] of entries) {
+  const teamStr = team === "x" ? "draw" : `victory ${game[team]}`;
+  console.log(`Odd of ${teamStr} ${odd}`);
+}
+//4.
+const scorers = {};
+for (const scorer of game.scored) {
+  scorers[scorer] = Number(scorers[scorer]) + 1;
+}
+console.log(scorers);
+
 /*
 //////////////////
 //OPTIONAL CHAINING
