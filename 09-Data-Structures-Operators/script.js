@@ -79,6 +79,43 @@ for (const [key, { open, close }] of entries) {
   console.log(`On ${key} we open at ${open} and close at ${close}`);
 }
 */
+
+////////////////////////////////////////////
+//SETS
+
+const orderSet = new Set([
+  "Pasta",
+  "Pizza",
+  "Pizza",
+  "Risotto",
+  "Pasta",
+  "Pizza",
+]);
+
+console.log(orderSet);
+console.log(new Set("Jonas"));
+console.log(orderSet.size);
+console.log(orderSet.has("Bread"));
+orderSet.add("GarlicBread", "Garlic Bread");
+orderSet.delete("Risotto");
+orderSet.clear(); // -> emptying a set
+console.log(orderSet);
+
+for (const order of orderSet) console.log(order);
+
+//Example Array to Set && Set to Array
+const staff = ["Waiter", "Chef", "Waiter", "Managre", "Chef", "Waiter"];
+const staffUnique = new Set(staff);
+console.log(staffUnique);
+const sfattUniqueArr = [...new Set(staff)];
+console.log(staffUnique);
+console.log(
+  new Set(["Waiter", "Chef", "Waiter", "Managre", "Chef", "Waiter"]).size
+);
+
+console.log(new Set("sejinpark").size);
+
+/*
 //Coding Challenge #2
 const game = {
   team1: "Bayern Munich",
@@ -150,7 +187,7 @@ for (const scorer of game.scored) {
   scorers[scorer] = Number(scorers[scorer]) + 1;
 }
 console.log(scorers);
-
+*/
 /*
 //////////////////
 //OPTIONAL CHAINING
