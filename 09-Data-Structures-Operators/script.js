@@ -161,6 +161,7 @@ checkBaggage("I have a laptop, some Food and a pocket knife");
 checkBaggage("Socks and camera");
 checkBaggage("Got some snacks and a gun for protection");
 */
+/*
 // PART 3
 //SPLIT AND JOIN
 console.log("a+very+nice+string".split("+"));
@@ -208,7 +209,43 @@ const planesInLine = function (n) {
 planesInLine(5);
 planesInLine(3);
 planesInLine(12);
+*/
 
+///////////////////////////////////
+// Coding Challenge #4
+document.body.append(document.createElement("textarea"));
+document.body.append(document.createElement("button"));
+
+document.querySelector("button").addEventListener("click", function () {
+  const text = document.querySelector("textarea").value;
+  const strArr = text.split("\n");
+  for (const [i, wordX] of strArr.entries()) {
+    const strArr2 = wordX.split("_");
+    let finalStr = "";
+    for (const [j, word] of strArr2.entries()) {
+      let temp = word.toLowerCase().trim();
+      if (j === strArr2.length - 1) {
+        temp = temp.replace(temp[0], temp[0].toUpperCase());
+      }
+      finalStr += temp;
+    }
+    finalStr = finalStr.padEnd(20, " ");
+    console.log(finalStr + "✅".repeat(i + 1));
+  }
+});
+/*
+underscore_case
+ first_name
+Some_Variable
+  calculate_AGE
+delayed_departure
+
+underscoreCase      ✅
+firstName           ✅✅
+someVariable        ✅✅✅
+calculateAge        ✅✅✅✅
+delayedDeparture    ✅✅✅✅✅
+*/
 /*
 //////////////////////
 // Coding Challenge #3
