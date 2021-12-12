@@ -53,6 +53,55 @@ const restaurant = {
     console.log(otherIngredients);
   },
 };
+////////////////////////////////
+//STRINGS
+const airline = "TAP Air Portugal";
+const plane = "A320";
+
+console.log(plane[0]);
+console.log(plane[1]);
+console.log(plane[2]);
+console.log("B373"[0]);
+
+console.log(airline.length);
+console.log("B737".length);
+
+//finding index position
+console.log(airline.indexOf("r"));
+console.log(airline.lastIndexOf("r"));
+//searching words, -1 if NOT FOUND
+console.log(airline.indexOf("Korea"));
+
+//slice method needs index as arguments
+console.log(airline.slice(4)); //-> extracting string starting at this index
+console.log(airline.slice(4, 7));
+
+console.log(airline.slice(0, airline.indexOf(" ")));
+console.log(airline.slice(airline.lastIndexOf(" ") + 1));
+
+//extracting from the end
+console.log(airline.slice(-2));
+console.log(airline.slice(1, -1));
+
+const checkMiddleSeat = function (seat) {
+  // B and E are middle seats
+  const s = seat.slice(-1); //last letter
+  if (s === "B" || s === "E") {
+    console.log("You got the middle seat");
+  } else {
+    console.log("You got lucky");
+  }
+};
+
+checkMiddleSeat("11B");
+checkMiddleSeat("23C");
+checkMiddleSeat("3E");
+
+console.log(new String("jonas"));
+console.log(typeof new String("jonas"));
+console.log(typeof new String("jonas").slice(1));
+
+/*
 //////////////////////
 // Coding Challenge #3
 const gameEvents = new Map([
@@ -92,6 +141,7 @@ for (const [time, event] of gameEvents) {
   time <= 45 ? (message += "[FIRST HALF]") : (message += "[SECOND HALF]");
   console.log(message + ` ${time}: ${event}`);
 }
+*/
 /*
 //MAP - Fundamentals
 const rest = new Map();
