@@ -211,6 +211,23 @@ planesInLine(3);
 planesInLine(12);
 */
 
+////////////////////////
+// STRING PRACTICE
+const getCode = (str) => str.slice(0, 3).toUpperCase();
+
+for (const flight of flights.split("+")) {
+  const [type, from, to, time] = flight.split(";");
+  const output = `${type.startsWith("_Delayed") ? "🔴" : ""} ${type.replaceAll(
+    "_",
+    " "
+  )} ${getCode(from)} to ${getCode(to)} (${time.replace(":", "h")})`.padStart(
+    37
+  );
+
+  console.log(output);
+}
+
+/*
 ///////////////////////////////////
 // Coding Challenge #4
 document.body.append(document.createElement("textarea"));
@@ -233,6 +250,8 @@ document.querySelector("button").addEventListener("click", function () {
     console.log(finalStr + "✅".repeat(i + 1));
   }
 });
+*/
+
 /*
 underscore_case
  first_name
