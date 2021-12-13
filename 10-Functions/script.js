@@ -120,7 +120,7 @@ const greetArr = (greeting) => (name) => console.log(`${greeting} ${name}`);
 
 greetArr("Hi")("Jonas");
 */
-
+/*
 const lufthansa = {
   airline: "Lufthansa",
   iataCode: "LH",
@@ -213,3 +213,48 @@ const addTaxRate = function (rate) {
 const addVAT2 = addTaxRate(0.23);
 console.log(addVAT2(100));
 console.log(addVAT2(23));
+*/
+
+//Coding Challenge #1
+const poll = {
+  question: "What is your favourite programming language?",
+  options: ["0: JavaScript", "1: Python", "2: Rust", "3: C++"],
+  // This generates [0, 0, 0, 0].
+  answers: new Array(4).fill(0),
+  resterNewAnswer() {
+    let promptMessage = this.question + "\n";
+    for (const option of this.options) {
+      promptMessage += option + "\n";
+    }
+    promptMessage += "(Write option number)";
+    const answer = Number(prompt(promptMessage));
+
+    if (
+      typeof answer === "number" &&
+      answer < this.answers.length &&
+      answer >= 0
+    ) {
+      this.answers[answer]++;
+    } else {
+      console.log("Invalid Option!");
+    }
+    this.displayResults();
+    this.displayResults("string");
+  },
+  displayResults(type = "array") {
+    if (type === "array") {
+      console.log(this.answers);
+    } else if (type === "string") {
+      console.log(`Poll results are ${this.answers.join(", ")}`);
+    }
+  },
+};
+
+const getPoll = poll.resterNewAnswer.bind(poll);
+
+document.querySelector(".poll").addEventListener("click", getPoll);
+
+// [5, 2, 3]
+//[ [1, 5, 3,9,6,1]]
+
+poll.displayResults.call({ answers: [5, 2, 3] }, "string");
