@@ -207,6 +207,7 @@ for (const mov of movements) if (mov > 0) depositsFor.push(mov);
 console.log(depositsFor);
 */
 
+/*
 //REDUCE method
 // accumulator -> SNOWBALL
 // const balance = movements.reduce(function (acc, cur, i, arr) {
@@ -227,3 +228,28 @@ const max = movements.reduce((acc, mov) => {
   else return mov;
 }, movements[0]);
 console.log(max);
+*/
+
+// Coding Challenge #2
+const calcAverageHumanAge = function (ages) {
+  const humanYears = ages.map(function (dog) {
+    if (dog <= 2) {
+      return 2 * dog;
+    } else {
+      return 16 + dog * 4;
+    }
+  });
+  console.log(humanYears);
+
+  const adultDogs = humanYears.filter(function (dog) {
+    return dog >= 18;
+  });
+  console.log(adultDogs);
+
+  const avgHumanAge = adultDogs.reduce(function (acc, dog, i, arr) {
+    return acc + dog / arr.length;
+  }, 0);
+  console.log(avgHumanAge);
+};
+
+calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
