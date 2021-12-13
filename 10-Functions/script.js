@@ -62,3 +62,34 @@ const newPassport = function (person) {
 newPassport(jonas);
 checkIn(flight, jonas);
 */
+
+//HIGHER ORDER FUNCTIONS
+const oneWord = function (str) {
+  return str.replace(/ /g, "").toLowerCase();
+};
+
+const upperFirstWord = function (str) {
+  const [first, ...others] = str.split(" ");
+  return [first.toUpperCase(), ...others].join(" ");
+};
+
+//higher-order function
+const transformer = function (str, fn) {
+  //fn is the callback function
+  console.log(`Original string: ${str}`);
+  console.log(`Transformed string: ${fn(str)}`);
+  console.log(`Transformed by: ${fn.name}`); //name of the function
+};
+
+transformer("JavaScript is the best!", upperFirstWord);
+
+transformer("JavaScript is the best!", oneWord);
+
+// JS uses call backs all the time
+const high5 = function () {
+  console.log("high five");
+};
+
+document.body.addEventListener("click", high5); //will call when you click on the button
+
+["Jonas", "Martha", "Adam"].forEach(high5);
