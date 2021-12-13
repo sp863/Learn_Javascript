@@ -255,6 +255,7 @@ const calcAverageHumanAge = function (ages) {
 
 calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
 */
+/*
 // PIPELINE
 const eurToUsd = 1.1;
 const totalDepositsUSD = movements
@@ -263,3 +264,18 @@ const totalDepositsUSD = movements
   .reduce((acc, mov) => acc + mov, 0);
 
 console.log(totalDepositsUSD);
+*/
+/*
+// Coding Challenge #2
+const calcAverageHumanAge = function (ages) {
+  const answer = ages
+    .map((dog) => (dog <= 2 ? 2 * dog : 16 + dog * 4))
+    .filter((dog) => dog >= 18)
+    .reduce((acc, dog, i, arr) => acc + dog / arr.length, 0);
+  console.log(answer);
+};
+
+calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
+*/
+
+// FIND METHOD
