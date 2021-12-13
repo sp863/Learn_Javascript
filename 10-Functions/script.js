@@ -215,6 +215,7 @@ console.log(addVAT2(100));
 console.log(addVAT2(23));
 */
 
+/*
 //Coding Challenge #1
 const poll = {
   question: "What is your favourite programming language?",
@@ -258,3 +259,93 @@ document.querySelector(".poll").addEventListener("click", getPoll);
 //[ [1, 5, 3,9,6,1]]
 
 poll.displayResults.call({ answers: [5, 2, 3] }, "string");
+*/
+
+/*
+const runOnce = function () {
+  console.log("This will never run again");
+};
+runOnce();
+
+//IIFE - immediately invoked function
+(function () {
+  console.log("This will never run again");
+  const isPrivate = 23;
+})();
+
+// console.log(isPrivate);
+
+(() => console.log("This will ALSO never run again"))();
+
+{
+  const isPrivate = 23;
+  var notPrivate = 46;
+}
+
+//console.log(isPrivate);
+console.log(notPrivate);
+*/
+
+////////////////////////////////
+//CLOSURE
+/*
+const secureBooking = function () {
+  let passengerCount = 0;
+
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount} passengers`);
+  };
+};
+
+const booker = secureBooking();
+
+// securebooking function finished executing but how can 'booker' function update the variable inside that function?
+// secureBooking's execution context isn't in the call stack anymore
+booker();
+booker();
+booker();
+
+console.dir(booker);
+*/
+
+//EXAMPLE 1
+let f;
+
+const g = function () {
+  const a = 23;
+  f = function () {
+    console.log(a * 2);
+  };
+};
+
+const h = function () {
+  const b = 777;
+  f = function () {
+    console.log(b * 2);
+  };
+};
+
+g();
+f(); //variable environment of g() is no longer there but closure exists
+// Re-assigning f function
+h();
+f();
+// by this piont closure cntains the value of b
+
+//EXAMPLE 2
+const boardPassengers = function (n, wait) {
+  const perGroup = n / 3;
+
+  setTimeout(function () {
+    console.log(`We are now boarding all ${n} passengers`);
+    console.log(`There are 3 groups, each with ${perGroup} passengers`);
+  }, wait * 1000);
+
+  console.log(`Will start boarding in ${wait} seconds`);
+};
+
+const perGroup = 1000; //closure has priority
+boardPassengers(180, 3);
+
+//closure is created so the call back function can still access the 'n' 'waiit' 'perGroup' after 3 seconds even thogh the board Passengers function is done executing
