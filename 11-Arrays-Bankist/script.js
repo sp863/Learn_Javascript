@@ -163,7 +163,7 @@ checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
 
 //MAP method
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-
+/*
 const eurToUsd = 1.1;
 
 const movementsUSD = movements.map(function (mov) {
@@ -188,3 +188,42 @@ const movementsDes = movements.map(
 );
 
 console.log(movementsDes);
+*/
+//FILTER method
+/*
+const deposits = movements.filter(function (mov) {
+  return mov > 0;
+});
+const withdrawals = movements.filter(function (mov) {
+  return mov < 0;
+});
+
+console.log(movements);
+console.log(deposits);
+console.log(withdrawals);
+
+const depositsFor = [];
+for (const mov of movements) if (mov > 0) depositsFor.push(mov);
+console.log(depositsFor);
+*/
+
+//REDUCE method
+// accumulator -> SNOWBALL
+// const balance = movements.reduce(function (acc, cur, i, arr) {
+//   console.log(`Iteation ${i}: ${acc}`);
+//   return acc + cur;
+// }, 0);
+const balance = movements.reduce((acc, cur) => acc + cur, 0);
+
+console.log(balance);
+
+let balance2 = 0;
+for (const mov of movements) balance2 += mov;
+console.log(balance2);
+
+//Maximum value
+const max = movements.reduce((acc, mov) => {
+  if (acc > mov) return acc;
+  else return mov;
+}, movements[0]);
+console.log(max);
