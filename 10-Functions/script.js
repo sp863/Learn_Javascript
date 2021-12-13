@@ -95,7 +95,7 @@ document.body.addEventListener("click", high5); //will call when you click on th
 
 ["Jonas", "Martha", "Adam"].forEach(high5);
 */
-
+/*
 const greet = function (greeting) {
   return function (name) {
     console.log(`${greeting} ${name}`);
@@ -119,3 +119,97 @@ greet("Hello")("Jonas");
 const greetArr = (greeting) => (name) => console.log(`${greeting} ${name}`);
 
 greetArr("Hi")("Jonas");
+*/
+
+const lufthansa = {
+  airline: "Lufthansa",
+  iataCode: "LH",
+  bookings: [],
+  book(flightNum, name) {
+    console.log(
+      `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`
+    );
+    this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name });
+  },
+};
+
+lufthansa.book(239, "Sejin Park");
+lufthansa.book(635, "John Smith");
+console.log(lufthansa);
+
+const eurowings = {
+  name: "Eurowings",
+  iataCode: "EW",
+  bookings: [],
+};
+
+const book = lufthansa.book;
+
+//DOES NOT WORK
+// book(23, "SarahWillams"); // doesn't work because the 'this' keyword doesn't point to the object any more in a regular function call
+
+//SOLUTION -> Call method
+book.call(eurowings, 23, "Sarah Williams");
+console.log(eurowings);
+
+book.call(lufthansa, 239, "Mary Cooper");
+
+const swiss = {
+  airline: "Swiss Air Lines",
+  iataCode: "LX",
+  bookings: [],
+};
+
+book.call(swiss, 583, "Mary Cooper");
+
+//Apply method
+const flightData = [583, "George Cooper"];
+book.apply(swiss, flightData); //not used in modern javascript
+console.log(swiss);
+
+book.call(swiss, ...flightData);
+
+//Bind method
+const bookEW = book.bind(eurowings); //doesn't call book function but binds the function to a certain object
+const bookLH = book.bind(lufthansa);
+const bookLX = book.bind(swiss);
+
+bookEW(23, "Steven Williams");
+
+//first argument is preset, presetting parameters
+const bookEW23 = book.bind(eurowings, 23);
+bookEW23("Martha Cooper");
+bookEW23("Sejin Park");
+
+// With Event Listeners
+lufthansa.planes = 300;
+lufthansa.buyPlane = function () {
+  console.log(this);
+
+  this.planes++;
+  console.log(this.planes);
+};
+
+document
+  .querySelector(".buy")
+  .addEventListener("click", lufthansa.buyPlane.bind(lufthansa));
+
+//Partial application
+const addTax = (rate, value) => value + value * rate;
+console.log(addTax(0.1, 200));
+
+const addVAT = addTax.bind(null, 0.23);
+// addVAT = value => value + value * 0.23
+
+console.log(addVAT(100));
+console.log(addVAT(23));
+
+const addTaxRate = function (rate) {
+  return function (value) {
+    return value + value * rate;
+  };
+};
+
+const addVAT2 = addTaxRate(0.23);
+console.log(addVAT2(100));
+console.log(addVAT2(23));
