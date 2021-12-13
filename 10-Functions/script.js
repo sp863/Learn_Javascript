@@ -309,6 +309,7 @@ booker();
 console.dir(booker);
 */
 
+/*
 //EXAMPLE 1
 let f;
 
@@ -349,3 +350,13 @@ const perGroup = 1000; //closure has priority
 boardPassengers(180, 3);
 
 //closure is created so the call back function can still access the 'n' 'waiit' 'perGroup' after 3 seconds even thogh the board Passengers function is done executing
+*/
+
+// Coding Challenge #2
+(function () {
+  const header = document.querySelector("h1");
+  header.style.color = "red";
+  document.querySelector("body").addEventListener("click", function () {
+    header.style.color = "blue";
+  });
+})();
