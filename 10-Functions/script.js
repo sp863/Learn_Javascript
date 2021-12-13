@@ -64,6 +64,7 @@ checkIn(flight, jonas);
 */
 
 //HIGHER ORDER FUNCTIONS
+/*
 const oneWord = function (str) {
   return str.replace(/ /g, "").toLowerCase();
 };
@@ -93,3 +94,28 @@ const high5 = function () {
 document.body.addEventListener("click", high5); //will call when you click on the button
 
 ["Jonas", "Martha", "Adam"].forEach(high5);
+*/
+
+const greet = function (greeting) {
+  return function (name) {
+    console.log(`${greeting} ${name}`);
+  };
+};
+
+const greeterHey = greet("Hey"); //this value is a function bc greet returns a function
+greeterHey("Jonas");
+greeterHey("Steven");
+
+greet("Hello")("Jonas");
+
+// const greet2 = (greeting) => {
+//   return (name) => console.log(`${greeting} ${name}`);
+// };
+
+// const greeterHey2 = greet2("Hey");
+// greeterHey2("Park");
+// greeterHey2("Miwon");
+
+const greetArr = (greeting) => (name) => console.log(`${greeting} ${name}`);
+
+greetArr("Hi")("Jonas");
