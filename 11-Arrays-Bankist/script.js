@@ -143,6 +143,7 @@ TEST DATA 2: Julia's data [9, 16, 6, 8, 3], Kate's data [10, 5, 6, 1, 4]
 GOOD LUCK 😀
 */
 
+/*
 const checkDogs = function (dogsJulia, dogsKate) {
   const dogsJuliaCopy = dogsJulia.slice(1, -2);
   console.log(dogsJuliaCopy);
@@ -157,5 +158,33 @@ const checkDogs = function (dogsJulia, dogsKate) {
     }
   });
 };
-
 checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
+*/
+
+//MAP method
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+const eurToUsd = 1.1;
+
+const movementsUSD = movements.map(function (mov) {
+  return mov * eurToUsd;
+});
+
+console.log(movements);
+console.log(movementsUSD);
+
+const movementsUSDfor = [];
+for (const mov of movements) movementsUSDfor.push(mov * eurToUsd);
+console.log(movementsUSDfor);
+
+const movementsUSDarrow = movements.map((move) => move * eurToUsd);
+console.log(movementsUSDarrow);
+
+const movementsDes = movements.map(
+  (mov, i) =>
+    `Movement ${i + 1}: You ${mov > 0 ? "deposited" : "withdrew"} ${Math.abs(
+      mov
+    )}`
+);
+
+console.log(movementsDes);
