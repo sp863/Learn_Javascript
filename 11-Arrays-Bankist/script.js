@@ -230,6 +230,7 @@ const max = movements.reduce((acc, mov) => {
 console.log(max);
 */
 
+/*
 // Coding Challenge #2
 const calcAverageHumanAge = function (ages) {
   const humanYears = ages.map(function (dog) {
@@ -253,3 +254,12 @@ const calcAverageHumanAge = function (ages) {
 };
 
 calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
+*/
+// PIPELINE
+const eurToUsd = 1.1;
+const totalDepositsUSD = movements
+  .filter((mov) => mov > 0)
+  .map((mov) => mov * eurToUsd)
+  .reduce((acc, mov) => acc + mov, 0);
+
+console.log(totalDepositsUSD);
