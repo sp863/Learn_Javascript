@@ -278,6 +278,7 @@ const calcAverageHumanAge = function (ages) {
 calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
 */
 
+/*
 // FIND METHOD
 const account1 = {
   owner: "Jonas Schmedtmann",
@@ -317,3 +318,21 @@ console.log(accounts);
 
 const account = accounts.find((acc) => acc.owner === "Jessica Davis");
 console.log(account);
+*/
+//SOME METHOD
+console.log(movements);
+// checks for equality
+console.log(movements.includes(-130));
+
+// checks for condition using 'some'
+const anyDeposits = movements.some((mov) => mov > 5000);
+console.log(anyDeposits);
+
+//EVERY METHOD
+console.log(movements.every((mov) => mov > 0));
+
+// writing callback function into a variable
+const deposit = (mov) => mov > 0;
+console.log(movements.some(deposit));
+console.log(movements.every(deposit));
+console.log(movements.filter(deposit));
