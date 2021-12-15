@@ -169,6 +169,7 @@ console.log(isEven(23));
 console.log(isEven(514));
 */
 
+/*
 // Numeric Separator
 // 287,460,000,000
 const diameter = 287_460_000_000;
@@ -185,3 +186,30 @@ console.log(PI);
 
 console.log(Number("230_000"));
 console.log(Number.parseInt("230_000")); // just cuts off the numbers after the underscore
+*/
+
+console.log(2 ** 53 - 1);
+console.log(Number.MAX_SAFE_INTEGER);
+console.log(349809820934802958340598340598340598340598430598n); // transform from regular number to bigInt
+console.log(BigInt(349809820934802958));
+
+//Operations
+console.log(10000n + 10000n);
+console.log(23423424234234234234234n * 100000000n);
+// console.log(Math.sqrt(16n)); math operations won't work on big Int
+
+const huge = 220342090980983409834098n;
+const num = 23;
+console.log(huge * BigInt(num));
+
+//Exceptions
+console.log(20n > 15); // true
+console.log(20n === 20); // false
+console.log(typeof 20n); // bigInt
+console.log(20n == "20"); //true
+
+console.log(huge + " is REALLy big!!!");
+
+//Divisions
+console.log(2n / 3n);
+console.log(10 / 3);
