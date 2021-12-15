@@ -162,7 +162,7 @@ checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
 */
 
 //MAP method
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 /*
 const eurToUsd = 1.1;
 
@@ -278,7 +278,6 @@ const calcAverageHumanAge = function (ages) {
 calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
 */
 
-/*
 // FIND METHOD
 const account1 = {
   owner: "Jonas Schmedtmann",
@@ -310,15 +309,16 @@ const account4 = {
 
 const accounts = [account1, account2, account3, account4];
 //return first element in the array for which this operation becomes true
-const firstWithdrawal = movements.find((mov) => mov < 0);
-console.log(movements);
-console.log(firstWithdrawal);
+// const firstWithdrawal = movements.find((mov) => mov < 0);
+// console.log(movements);
+// console.log(firstWithdrawal);
 
-console.log(accounts);
+// console.log(accounts);
 
-const account = accounts.find((acc) => acc.owner === "Jessica Davis");
-console.log(account);
-*/
+// const account = accounts.find((acc) => acc.owner === "Jessica Davis");
+// console.log(account);
+
+/*
 //SOME METHOD
 console.log(movements);
 // checks for equality
@@ -336,3 +336,24 @@ const deposit = (mov) => mov > 0;
 console.log(movements.some(deposit));
 console.log(movements.every(deposit));
 console.log(movements.filter(deposit));
+*/
+
+const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
+console.log(arr.flat());
+
+const arrDeep = [[[1, 2], 3], [4, [5, 6]], 7, 8];
+console.log(arrDeep.flat(2));
+
+// flat
+const overallBalance = accounts
+  .map((acc) => acc.movements)
+  .flat()
+  .reduce((acc, mov) => acc + mov, 0);
+console.log(overallBalance);
+
+// flatMap
+const overallBalance2 = accounts
+  .flatMap((acc) => acc.movements)
+  .flat()
+  .reduce((acc, mov) => acc + mov, 0);
+console.log(overallBalance2);
