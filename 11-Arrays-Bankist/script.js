@@ -162,7 +162,7 @@ checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
 */
 
 //MAP method
-// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 /*
 const eurToUsd = 1.1;
 
@@ -338,6 +338,7 @@ console.log(movements.every(deposit));
 console.log(movements.filter(deposit));
 */
 
+/*
 const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
 console.log(arr.flat());
 
@@ -357,3 +358,30 @@ const overallBalance2 = accounts
   .flat()
   .reduce((acc, mov) => acc + mov, 0);
 console.log(overallBalance2);
+*/
+
+// Strings
+const owners = ["Jonas", "Zach", "Adam", "Martha"];
+console.log(owners.sort()); // alphabetically sorted
+console.log(owners);
+
+// Numbers
+console.log(movements);
+// console.log(movements.sort()); // sorts by string alphabetically so this doesn't work as expected
+
+// return < 0, A, B (keep order)
+// return > 0, B, A (switch order)
+//Ascending
+// movements.sort((a, b) => {
+//   if (a > b) return 1;
+//   if (a < b) return -1;
+// });
+movements.sort((a, b) => a - b);
+console.log(movements);
+//Descending
+// movements.sort((a, b) => {
+//   if (a > b) return -1;
+//   if (a < b) return 1;
+// });
+movements.sort((a, b) => b - a);
+console.log(movements);
