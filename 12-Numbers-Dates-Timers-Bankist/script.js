@@ -265,6 +265,7 @@ const days1 = calcDaysPassed(new Date(2037, 3, 4), new Date(2037, 3, 14));
 console.log(days1);
 */
 
+/*
 const num = 2392832.23;
 
 const options = {
@@ -280,3 +281,26 @@ console.log(
   navigator.language,
   new Intl.NumberFormat(navigator.language, options).format(num)
 );
+*/
+
+// setTimeout
+const ingredients = ["olives", "spinach"];
+const pizzaTimer = setTimeout(
+  (ing1, ing2) => console.log(`Here is your pizza with ${ing1} and ${ing2}`),
+  3000,
+  ...ingredients
+  // "olives", //first parameter
+  // "spinach" //next parameter
+);
+console.log("Waiting..."); // asynchronus javascript
+// call back function is registered until after 3seconds
+
+if (ingredients.includes("spinach")) clearTimeout(pizzaTimer);
+
+setInterval;
+const x = setInterval(function () {
+  const now = new Date();
+  console.log(now);
+}, 3000);
+
+clearTimeout(x);
