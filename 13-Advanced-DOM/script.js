@@ -1,5 +1,5 @@
 "use strict";
-
+/*
 // Selecting elements
 console.log(document.documentElement); //entire HTML
 console.log(document.head);
@@ -83,3 +83,22 @@ logo.classList.contains("c"); // not includes
 
 // shouldn't use this
 logo.className = "jonas";
+*/
+
+// Events and removing events
+const h1 = document.querySelector("h1");
+
+const alertH1 = function (e) {
+  alert("addEventListener: Great! You are reading the heading");
+  //mouseenter -> hovering
+  // h1.removeEventListener("mouseenter", alertH1);
+};
+
+h1.addEventListener("mouseenter", alertH1);
+
+setTimeout(() => h1.removeEventListener("mouseenter", alertH1), 3000);
+
+// old school
+// h1.onmouseenter = function (e) {
+//   alert("addEventListener: Great! You are reading the heading");
+// };
