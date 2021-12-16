@@ -1,31 +1,85 @@
-'use strict';
+"use strict";
 
-///////////////////////////////////////
-// Modal window
+// Selecting elements
+console.log(document.documentElement); //entire HTML
+console.log(document.head);
+console.log(document.body); // no need for selectors
 
-const modal = document.querySelector('.modal');
-const overlay = document.querySelector('.overlay');
-const btnCloseModal = document.querySelector('.btn--close-modal');
-const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
+const header = document.querySelector(".header");
+const allSections = document.querySelectorAll(".section");
+console.log(allSections);
 
-const openModal = function () {
-  modal.classList.remove('hidden');
-  overlay.classList.remove('hidden');
-};
+document.getElementById("section--1");
+document.getElementsByTagName("button");
 
-const closeModal = function () {
-  modal.classList.add('hidden');
-  overlay.classList.add('hidden');
-};
+console.log(document.getElementsByClassName("btn"));
 
-for (let i = 0; i < btnsOpenModal.length; i++)
-  btnsOpenModal[i].addEventListener('click', openModal);
+// Creating and inserting elements
+// .insertAdjacentHTML -> convenient
+const message = document.createElement("div"); //object that represents DOM element
+message.classList.add("cookie-message");
+// message.textContent = "We use cookies for improved functionality and analytics";
+message.innerHTML =
+  "We use cookies for improved functionality and analytics. <button class='btn btn--close-cookie'>Got it! </button>";
 
-btnCloseModal.addEventListener('click', closeModal);
-overlay.addEventListener('click', closeModal);
+// header.prepend(message); //first child of the header element
+header.append(message); //last child of the header element -> moved the element from prepend to last child
+// header.append(message.cloneNode(true)); //copying
 
-document.addEventListener('keydown', function (e) {
-  if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
-    closeModal();
-  }
-});
+header.before(message);
+// header.after(message);
+
+// Delete elements
+document
+  .querySelector(".btn--close-cookie")
+  .addEventListener("click", function () {
+    message.remove();
+  });
+
+//Styles
+message.style.backgroundColor = "#37383d";
+message.style.width = "120%"; //inline styles
+
+console.log(message.style.color);
+console.log(message.style.backgroundColor); //inline style so you can see it on the console
+console.log(getComputedStyle(message).color);
+console.log(getComputedStyle(message).height);
+
+message.style.height =
+  Number.parseFloat(getComputedStyle(message).height, 10) + 30 + "px";
+
+// if you can change sth on the css file you can do it on JS too
+
+document.documentElement.style.setProperty("--color-primary", "orangered");
+
+// Attributes
+const logo = document.querySelector(".nav__logo");
+//can only read standard property
+console.log(logo.alt);
+console.log(logo.className);
+
+logo.alt = "Beautiful minilist logo";
+
+// Non-standard
+console.log(logo.designer);
+console.log(logo.getAttribute("designer"));
+logo.setAttribute("company", "Bankist");
+
+console.log(logo.src); //absolute URL different from folder URL
+console.log(logo.getAttribute("src")); //reltive URL
+
+const link = document.querySelector(".nav__link--btn");
+console.log(link.href);
+console.log(link.getAttribute("href"));
+
+// Data attributes
+console.log(logo.dataset.versionNumber); //always stored in the dataset object, storing data in the user interface -> HTML code
+
+// Classes
+logo.classList.add("c", "j");
+logo.classList.remove("c");
+logo.classList.toggle("c");
+logo.classList.contains("c"); // not includes
+
+// shouldn't use this
+logo.className = "jonas";
