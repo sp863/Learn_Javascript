@@ -188,6 +188,7 @@ console.log(Number("230_000"));
 console.log(Number.parseInt("230_000")); // just cuts off the numbers after the underscore
 */
 
+/*
 console.log(2 ** 53 - 1);
 console.log(Number.MAX_SAFE_INTEGER);
 console.log(349809820934802958340598340598340598340598430598n); // transform from regular number to bigInt
@@ -213,3 +214,42 @@ console.log(huge + " is REALLy big!!!");
 //Divisions
 console.log(2n / 3n);
 console.log(10 / 3);
+*/
+
+//Date
+
+// Create Date
+const now = new Date();
+console.log(now);
+
+// based on a string
+console.log(new Date("Aug 02 2020 18:05:41"));
+console.log(new Date("December 24, 2015"));
+console.log(new Date(account1.movementsDates[0]));
+
+console.log(new Date(2037, 10, 19, 15, 23, 5));
+console.log(new Date(2037, 10, 31));
+
+console.log(new Date(0));
+
+console.log(new Date(3 * 24 * 60 * 60 * 1000)); //converting to miliseconds ex) 3 days
+
+// Working with dates
+const future = new Date(2037, 10, 19, 15, 23);
+console.log(future);
+console.log(future.getFullYear());
+console.log(future.getMonth());
+console.log(future.getDate());
+console.log(future.getDay()); // 0 is Sunday
+console.log(future.getHours());
+console.log(future.getMinutes());
+console.log(future.getSeconds());
+console.log(future.toISOString());
+console.log(future.getTime());
+
+console.log(new Date(2142224580000));
+
+console.log(Date.now()); //gives time stamp
+
+future.setFullYear(2040);
+console.log(future);
