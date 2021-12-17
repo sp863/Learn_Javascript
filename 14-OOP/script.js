@@ -225,6 +225,7 @@ class Car {
 
 const ford = new Car("Ford", 120);
 */
+/*
 const Person = function (firstName, birthYear) {
   // Instance properties
   this.firstName = firstName;
@@ -258,6 +259,7 @@ console.log(mike instanceof Object); // -> true
 
 Student.prototype.constructor = Student;
 console.log(Student.prototype.constructor);
+
 
 // coding challenge #3
 const Car = function (make, speed) {
@@ -296,3 +298,65 @@ EV.prototype.accel = function () {
 const tesla = new EV("Tesla", 120, 23);
 tesla.chargeBattery(90);
 tesla.accel();
+*/
+
+class PersonCl {
+  constructor(fullName, birthYear) {
+    this.fullName = fullName;
+    this.birthYear = birthYear;
+  }
+  // Instance Methods
+  // Methods will be added to .prototype property
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  }
+
+  greet() {
+    console.log(`Hey ${this.firstName}`);
+  }
+
+  get age() {
+    return 2037 - this.birthYear;
+  }
+
+  // Set a proprety that already exists
+  set fullName(name) {
+    console.log(name);
+    if (name.includes(" ")) this._fullName = name;
+    // creates a new object
+    else alert(`${name} is not a full name`);
+  }
+
+  get fullName() {
+    return this._fullName;
+  }
+
+  // Static method
+  static hey() {
+    console.log("Hey there");
+    console.log(this);
+  }
+}
+
+class StudentCl extends PersonCl {
+  constructor(fullName, birthYear, course) {
+    //Always needs to happend first
+    super(fullName, birthYear);
+    this.course = course; //when there is no additional variable in the child, no need for constructor method
+  }
+
+  introduce() {
+    console.log(`My name is ${this.fullName} and I study ${this.course}`);
+  }
+
+  //overwriting
+  calcAge() {
+    console.log(
+      `I'm ${2037 - this.birthYear} years old , but all the bullshit`
+    );
+  }
+}
+
+const martha = new StudentCl("Martha Jones", 2012, "Computer Science");
+martha.introduce();
+martha.calcAge();
