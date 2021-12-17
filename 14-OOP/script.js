@@ -66,3 +66,28 @@ console.log(arr.unique());
 
 const h1 = document.querySelector("h1");
 console.dir((x) => x + 1);
+
+// Coding Challenge #1
+//1
+const Car = function (make, speed) {
+  this.make = make;
+  this.speed = speed;
+};
+
+//2
+Car.prototype.accel = function () {
+  this.speed += 10;
+  console.log(this.speed);
+};
+Car.prototype.brake = function () {
+  this.speed -= 5;
+  console.log(this.speed);
+};
+
+const bmw = new Car("BMW", 120);
+const benz = new Car("Mercedes", 95);
+
+bmw.accel();
+bmw.brake();
+benz.accel();
+benz.brake();
