@@ -102,7 +102,7 @@ class PersonCl {
     this.fullName = fullName;
     this.birthYear = birthYear;
   }
-
+  // Instance Methods
   // Methods will be added to .prototype property
   calcAge() {
     console.log(2037 - this.birthYear);
@@ -127,6 +127,12 @@ class PersonCl {
   get fullName() {
     return this._fullName;
   }
+
+  // Static method
+  static hey() {
+    console.log("Hey there");
+    console.log(this);
+  }
 }
 
 const jessica = new PersonCl("Jessica Davis", 1996);
@@ -143,6 +149,8 @@ console.log(jessica.__proto__ === PersonCl.prototype); // -> true
 jessica.greet();
 
 const walter = new PersonCl("Walter White", 1965);
+
+PersonCl.hey();
 
 const account = {
   owner: "jonas",
@@ -161,3 +169,39 @@ console.log(account.latest);
 
 account.latest = 50;
 console.log(account.movements);
+
+// Static Methods
+const Person = function (firstName, birthYear) {
+  // Instance properties
+  this.firstName = firstName;
+  this.birthYear = birthYear;
+};
+
+Person.hey = function () {
+  console.log("Hey there");
+};
+
+Person.hey(); // -> this keyword here is the entire constructor function
+// jonas.hey() -> error since not in the prototype
+
+//Object.create
+const PersonProto = {
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  },
+  init(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  },
+};
+
+const steven = Object.create(PersonProto); // steven linked to Person Proto
+steven.name = "Steven";
+steven.birthYear = 2002;
+steven.calcAge();
+
+console.log(steven.__proto__ === PersonProto);
+
+const sarah = Object.create(PersonProto);
+sarah.init("Sarah", 1978);
+sarah.calcAge();
