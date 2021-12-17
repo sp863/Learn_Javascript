@@ -189,7 +189,7 @@ console.log(h1.parentElement.children);
 
 // const observer = new IntersectionObserver(obsCallback, obsOptions);
 // observer.observe(section1);
-
+/*
 const header = document.querySelector(".header");
 const navHeight = nav.getBoundingClientRect().height;
 console.log(navHeight);
@@ -207,3 +207,19 @@ const headerObserver = new IntersectionObserver(stickyNav, {
   rootMargin: `-${navHeight}px`,
 });
 headerObserver.observe(header);
+*/
+
+document.addEventListener("DOMContentLoaded", function (e) {
+  console.log("HTML parsed and DOM tree build!", e);
+});
+
+window.addEventListener("load", function (e) {
+  console.log("Page fully loaded", e);
+});
+
+//When the user is about to leave an important page like filling out something
+// window.addEventListener("beforeunload", function (e) {
+//   e.preventDefault();
+//   console.log(e);
+//   e.returnValue = "";
+// });
