@@ -92,7 +92,7 @@ bmw.brake();
 benz.accel();
 benz.brake();
 */
-
+/*
 // class expression
 // const PersonCl = class{}
 
@@ -205,3 +205,22 @@ console.log(steven.__proto__ === PersonProto);
 const sarah = Object.create(PersonProto);
 sarah.init("Sarah", 1978);
 sarah.calcAge();
+*/
+
+// coding challenge #2
+class Car {
+  constructor(make, speed) {
+    this.make = make;
+    this.speed = speed;
+  }
+
+  get speedUS() {
+    return this.speed / 1.6;
+  }
+
+  set speedUS(speed) {
+    this.speed = speed * 1.6;
+  }
+}
+
+const ford = new Car("Ford", 120);
