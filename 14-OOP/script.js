@@ -396,6 +396,7 @@ jay.calcAge();
 // Private methods
 // (Also the static version)
 
+/*
 class Account {
   // Public fields (instances) not on prototype
   locale = navigator.language;
@@ -424,10 +425,12 @@ class Account {
   //Public interface
   deposit(val) {
     this.#movements.push(val);
+    return this;
   }
 
   withdraw(val) {
     this.deposit(-val);
+    return this;
   }
   //needs data encapsulation and privacy
 
@@ -436,6 +439,7 @@ class Account {
       this.deposit(val);
       console.log(`Loan approved`);
     }
+    return this;
   }
 
   static helper() {
@@ -455,9 +459,56 @@ acc1.deposit(250);
 acc1.withdraw(140);
 acc1.requestLoan(1000);
 acc1._approveLoan(1000);
-console.log(acc1.getMovements);
-
+console.log(acc1.getMovements());
 console.log(acc1);
+Account.helper(); // -> static methods
 // console.log(acc1.#movements);
 
-Account.helper(); // -> static methods
+//Chaining
+acc1.deposit(300).deposit(500).withdraw(35).requestLoan(25000).withdraw(4000);
+console.log(acc1.getMovements());
+*/
+
+// Coding Challenge #4
+class CarCl {
+  constructor(make, speed) {
+    this.make = make;
+    this.speed = speed;
+  }
+
+  accel() {
+    this.speed += 10;
+    console.log(this.speed);
+  }
+  brake() {
+    this.speed -= 5;
+    console.log(this.speed);
+  }
+}
+
+class EVCl extends CarCl {
+  #charge;
+  constructor(make, speed, charge) {
+    super(make, speed);
+    this.#charge = charge;
+  }
+
+  accel() {
+    this.speed += 10;
+    this.charge--;
+    console.log(
+      `${this.make} going at ${this.speed} km/h, with a charge of ${this.charge}%`
+    );
+  }
+  chargeCar(chargeTo) {
+    this.charge = chargeTo;
+    console.log(`${this.make} charged to ${this.#charge}%`);
+  }
+}
+
+const riv = new EVCl("Rivian", 120, 23);
+
+riv.chargeCar(90);
+riv.accel();
+riv.accel();
+riv.brake();
