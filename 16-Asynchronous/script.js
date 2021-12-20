@@ -130,6 +130,7 @@ getCountryData("australia");
 // Coding Challenge #1
 // PART1
 //1.
+/*
 const whereAmI = function (lat, lng) {
   fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`)
     .then((res) => {
@@ -151,3 +152,17 @@ const whereAmI = function (lat, lng) {
 };
 
 whereAmI(52.508, 13.381);
+*/
+
+// in what order?
+console.log("Test start"); //1
+setTimeout(() => console.log("0 sec timer"), 0); //4
+Promise.resolve("Revsolved Promise 1").then((res) => console.log(res)); //3
+console.log("Test end"); //2
+
+Promise.resolve("Resolved promise 2").then((res) => {
+  for (let i = 0; i < 100000000; i++) {}
+  console.log(res);
+});
+
+console.log("Test end");
