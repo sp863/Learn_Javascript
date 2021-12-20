@@ -25,6 +25,7 @@ const renderCountry = function (data, className = "") {
     </article>`;
 
   countriesContainer.insertAdjacentHTML("beforeend", html);
+  countriesContainer.style.opacity = 1;
 };
 /*
   const getCountryAndNeighbor = function (country) {
@@ -80,6 +81,7 @@ getCountryAndNeighbor("usa");
 //     });
 // };
 
+/*
 const getJSON = function (url, errorMsg = "Something went wrong") {
   return fetch(url).then((response) => {
     if (!response.ok) {
@@ -123,3 +125,29 @@ btn.addEventListener("click", function () {
 getCountryData("australia");
 
 // Handling promise rejections
+*/
+
+// Coding Challenge #1
+// PART1
+//1.
+const whereAmI = function (lat, lng) {
+  fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`)
+    .then((res) => {
+      if (!res.ok) throw new Error(`Problem with geocoding ${res.status}`);
+      return res.json();
+    })
+    .then((data) => {
+      console.log(data);
+      console.log(`You are in ${data.city}, ${data.country}`);
+
+      return fetch(`https://restcountries.com/v2/name/${data.country}`);
+    })
+    .then((res) => {
+      if (!res.ok) throw new Error(`Country not found(${res.status})`);
+      return res.json();
+    })
+    .then((data) => renderCountry(data[0]))
+    .catch((err) => console.error(`${err.message} *`));
+};
+
+whereAmI(52.508, 13.381);
