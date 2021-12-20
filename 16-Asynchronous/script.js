@@ -352,8 +352,22 @@ const whereAmI = async function (country) {
   } catch (err) {
     renderError(`Something went wrong * ${err.message}`);
   }
+  // Reject promise returned from async function
+  throw err;
 };
 
 console.log("1: Will get location");
+whereAmI()
+  .then((city) => console.log(city))
+  .catch((err) => console.error(`2: ${err.message} **`))
+  .finally(() => console.log("3: Finished getting location"));
 
-console.log("2. Finished getting location");
+(async function () {
+  try {
+    const city = await whereAmI();
+    console.log(`2: ${city}`);
+  } catch (err) {
+    console.error(`2: ${err.message}`);
+  }
+  console.log("3. function");
+});
