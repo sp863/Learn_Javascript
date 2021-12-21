@@ -10,14 +10,12 @@
 
 // import add, { addToCart, totalPrice as price, tq } from "./shoppingCart.js";
 
-/*
 import add, { cart } from "./shoppingCart.js";
 add("pizza", 2);
 add("bread", 5);
 add("apple", 4);
 
 console.log(cart);
-*/
 
 // console.log("Start fetching");
 // const res = await fetch("https://jsonplaceholder.typicode.com/posts"); // blocking the entire code when slow
@@ -42,7 +40,7 @@ console.log(lastPost);
 const lastPost2 = await getLastPost();
 console.log(lastPost2);
 */
-
+/*
 // create IFEE
 const ShoppingCart2 = (function () {
   const cart = [];
@@ -70,3 +68,29 @@ ShoppingCart2.addToCart("apple", 4);
 ShoppingCart2.addToCart("pizza", 2);
 console.log(ShoppingCart2);
 console.log(ShoppingCart2.shoppingCost);
+*/
+
+// import cloneDeep from "./node_modules/lodash-es/cloneDeep.js";
+import cloneDeep from "lodash";
+
+const state = {
+  cart: [
+    { product: "bread", quantity: 4 },
+    { product: "pizza", quantity: 5 },
+  ],
+  user: { loggedIn: true },
+};
+
+const stateClone = Object.assign({}, state);
+const stateDeepClone = cloneDeep(state);
+console.log(stateClone);
+
+state.user.loggedIn = false;
+console.log(stateClone);
+
+console.log(stateDeepClone);
+
+if (module.hot) {
+  // state is maintained
+  module.hot.accept();
+}
